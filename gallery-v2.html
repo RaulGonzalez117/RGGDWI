@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <style>
+    .card {
+      border: none;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .card-img-top {
+      height: 200px;
+      width: 100%;
+      object-fit: contain;
+      filter: blur(4px);
+      transition: filter 0.3s ease-in-out;
+      background-color: #f0f0f0;
+    }
+
+    .clear-img {
+      filter: blur(0);
+    }
+
+    .card-footer {
+      background-color: transparent;
+      border-top: none;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto1.jpeg" class="card-img-top" alt="Foto 1">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto2.jpeg" class="card-img-top" alt="Foto 2">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto3.jpeg" class="card-img-top" alt="Foto 3">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto4.jpeg" class="card-img-top" alt="Foto 4">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto11.jpeg" class="card-img-top" alt="Foto 5">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto6.jpeg" class="card-img-top" alt="Foto 6">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto7.jpeg" class="card-img-top" alt="Foto 7">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto8.jpeg" class="card-img-top" alt="Foto 8">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto9.jpeg" class="card-img-top" alt="Foto 9">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card text-center">
+          <img src="photos/foto5.jpeg" class="card-img-top" alt="Foto 10">
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="toggleBlur(this)">Ver foto</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+      <p>Fotos desbloqueadas: <span id="contador">0</span></p>
+    </div>
+  </div>
+
+  <script>
+    let contador = 0;
+
+    function toggleBlur(button) {
+      const img = button.closest('.card').querySelector('img');
+      const isClear = img.classList.contains('clear-img');
+
+      if (isClear) {
+        img.classList.remove('clear-img');
+        button.textContent = 'Ver foto';
+        button.classList.remove('btn-success');
+        button.classList.add('btn-primary');
+        contador--;
+      } else {
+        img.classList.add('clear-img');
+        button.textContent = 'Ocultar foto';
+        button.classList.remove('btn-primary');
+        button.classList.add('btn-success');
+        contador++;
+      }
+
+      document.getElementById('contador').textContent = contador;
+    }
+  </script>
+</body>
+</html>
